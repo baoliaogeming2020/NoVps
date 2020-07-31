@@ -1,31 +1,20 @@
-终于找到了不用申请VPS传播爆料革命的方法了。大部分VPS架设P2P都会被封号，所以在想破脑袋后，终于想到了最适合的办法。  
+终于找到了不用申请VPS传播爆料革命的方法。大部分VPS架设P2P都会被封号，所以在想破脑袋后，终于想到了最适合的办法。  
 
-本项目适合传播任何分辨率的音视频，只要油管支持的格式就可以向墙内传播。** 任何战友都可以自愿参与，参与的战友越多向墙内传播的速度越快 **。  
+本项目适合传播任何分辨率的音视频，只要油管支持的格式就可以向墙内传播。**任何战友都可以自愿参与，参与的战友越多向墙内传播的速度越快。  
 
-本项目目的是通过 metalink 向墙内传播郭先生爆料革命音视频，当墙外战友通过 metalink 下载时，可向墙内战友分享下载流量。
-　　发布文件包括：音视频文件及同名 .torrent / .metalink / .magnet 文件。
-　　墙外战友通过 metalink 下载，墙内战友通过 torrent / magnet 下载。
+本项目目的是通过解析油管视频链接后生成 metalink 向墙内传播郭先生爆料革命音视频，当墙外战友通过 metalink 下载时，可向墙内战友分享下载流量。传播方式是通过向墙外战友分享metalink链接，向墙内战友分享torrent / magnet 两种 P2P 链接，在墙外战友下载时，可通过 P2P 技术向墙内战友分享下载流量。  
 
-声明：
-　　本项目为穿墙模式试探，所有方法与技术实现不向爆料革命战友保留版权，任何爆料革命战友都可以用相同的方式传播爆料革命。
-　　如爆料革命主播想将音视频存储方式从 MEGA网盘转到此方式，以方便穿墙传播，本人可以提供全程技术支持，请在评论区留言。
+# 版权声明：
+本项目为穿墙模式试探，所有方法与技术实现不向爆料革命战友保留版权，任何爆料革命战友都可以用相同的方式传播爆料革命。  
+如爆料革命主播想用此方式向墙内传播音视频，本人可以提供全程技术支持，请在评论区留言，我会主动联系爆料革命主播本人。  
 
-原理：
-　　metalink 协议支持 HTTP / FTP / Bittorrent 同时下载同一个文件，墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。metalink 是 xml 文件，内含相同文件的 HTTP / FTP / Bittorrent 下载链接，BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友直接可以下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些BT软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它BT软件下载此种子文件， 注意 ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。
-　　GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。
+# 穿墙原理：
+通过解析 youtube 音视频链接，发现非 Blob 链接，用 aria2 技术下载后，用 mktorrent 生成 .torrent 种子文件，用 aria2c -S 解析 magnet 链接，再用脚本生成 metalink 下载文件。  
+metalink 协议支持 HTTP / FTP / Bittorrent 同时下载同一个文件，墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。metalink 是 xml 文件，内含相同文件的 HTTP / FTP / Bittorrent 下载链接，BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友直接可以下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些BT软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它BT软件下载此种子文件， 注意 ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
+GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。
 
 传播方式：
 　　网上有大量免费空间，只要能够上传文件并生成 http / ftp 下载链接，有无域名都可以传播。本地用脚本批量生成torrent / metalink / magnet 三种文件，一并上传，然后向墙外分享 metalink 链接，向墙内分享 magnet链接。
-
-Okteto 传播方式示例：
-　　正在研究中，敬请期待...
-
-Sourceforge 传播方式示例：
-　　示例
-　　Sourceforge(SF)注册后建 project 可提供 1000M 空间，所有上传文件在无域名的情况下可生成下载链接，SF 有 20 多个备用下载服务器，这些服务器的IP都不相同，也就是，你上传的每个文件会有20多个下载链接，很适合 metalink 下载加速。
-　　郭先生、路德、面具的音频基本上平均大小在 20M 左右，1000M 空间可以上传 50 个音频，大概是一个主播近两个月的内容，用 metalink 实现 http 向 BT 注入流量两个月已经可以完成做种分享。
-　　SF 支持 SCP / Rsync / SFTP / SSH 命令，可以实现一键脚本。
-　　有意思的事：大陆竟然没封锁SF网站。如果不会用metalink，可以直接上传音频，传播链接。
 
 Github 传播方式示例：
 　　Github注册后建 project 可上传小于25M的文件，所有上传文件在无域名的情况下可生成下载链接。郭先生、路德、面具的音频中大于25M的要分割然后上传。
@@ -58,6 +47,10 @@ BT服务器：
 　　如果自有网上空间的战友，需要修改"mkmetalink"脚本文件。
 
 MAC系统操作步骤：
+以面具先生20200731视频为例：
+
+aria2c --all-proxy "http://127.0.0.1:1087" "https://r1---sn-a5msen7z.googlevideo.com/videoplayback?expire=1596235844&ei=5EskX6yPL5DUgwPqu5TYAw&ip=163.153.220.170&id=o-ABXgD_7WY1IVoNapynpefTY8Fa_qlMZ4bbRwZvjSTiVJ&itag=22&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=4615.058&lmt=1596173523849741&fvip=1&fexp=23883098&c=WEB&txp=7316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAJ4x6NGDO-LleNjX7h4jYDRXcg4kSe51bnWwab-M_pBtAiEAwoBhtsoTKco0nqEgSq-kK8APokwib_eDpYYVMf6Xxn8%3D&rm=sn-oxgpj-5ace7e,sn-ab5yr7e&req_id=cbd739e65c19a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=eX&mip=23.225.159.50&mm=29&mn=sn-a5msen7z&ms=rdu&mt=1596214108&mv=u&mvi=1&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgD5wZEoAdMyr7KkKkd-WNISiZKmkGCy8I77dyQmtG8OgCIAjGUrv6EcGTkLA4zG6vslPoxs6MPwaTyJOKsbObDhR2"
+
 安装 homebrew：
 　　/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 安装aria2：
