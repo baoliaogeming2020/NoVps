@@ -14,98 +14,98 @@ metalink 协议支持 HTTP / FTP / Bittorrent 同时下载同一个文件，墙�
 GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。
 
 # 传播方式：
-　　网上有大量免费空间，只要能够上传文件并生成 http / ftp 下载链接，有无域名都可以传播。本地用脚本批量生成torrent / metalink / magnet 三种文件，一并上传，然后向墙外分享 metalink 链接，向墙内分享 magnet链接。
+　　网上有大量免费空间，只要能够上传文件并生成 http / ftp 下载链接，有无域名都可以传播。本地用脚本批量生成torrent / metalink / magnet 三种文件，一并上传，然后向墙外分享 metalink 链接，向墙内分享 magnet链接。  
 
 ## Github 传播方式示例：
-　　Github注册后建 project 可上传小于25M的文件，所有上传文件在无域名的情况下可生成下载链接。郭先生、路德、面具的音频中大于25M的要分割然后上传。
+　　Github注册后建 project 可上传小于25M的文件，所有上传文件在无域名的情况下可生成下载链接。郭先生、路德、面具的音频中大于25M的要分割然后上传。  
 
 ## 分享方式示例：
-　　墙外战友下载： aria2c https://home.com/dit/to/file.mp3.metalink
-　　墙内战友下载： aria2c magnet:?xt=urn:btih:A8C93686D09CAB35B04E648DAB805D2B9165E23E
+　　墙外战友下载： aria2c https://home.com/dit/to/file.mp3.metalink  
+　　墙内战友下载： aria2c magnet:?xt=urn:btih:A8C93686D09CAB35B04E648DAB805D2B9165E23E  
 
 ## BT服务器：
-　　tracker 服务器网站：https://newtrackon.com/list
-　　dht.dat 下载的网站：https://github.com/P3TERX/aria2.conf
+　　tracker 服务器网站：https://newtrackon.com/list  
+　　dht.dat 下载的网站：https://github.com/P3TERX/aria2.conf  
 
 # 支持 metalink 软件汇总：
-　　aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。
-　　AriaNg：
-　　aria2webui：
-　　yaaw：
-　　... ...
+　　aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。  
+　　AriaNg：  
+　　aria2webui：  
+　　yaaw：  
+　　... ...  
 
 # 支持 BT / magnet 软件汇总：
-　　Motrix：https://motrix.app/
-　　... ...
+　　Motrix：https://motrix.app/  
+　　... ...  
 
 # 本项目文件发布：
-　　本网站发布郭先生音频文件同时发布同文件名的 .torrent / .metalink / .magnet 三种下载链接，墙外战友下载时尽量不要用 https / torrent 模式下载，因为只有 metalink / magnet 能向墙内战友提供流量。
-　　向战友分享文件为downloadLinkList.txt，此文件包括墙内墙外战友下载两种链接格式 .metalink 与 magnet 链接。
+　　本网站发布郭先生音频文件同时发布同文件名的 .torrent / .metalink / .magnet 三种下载链接，墙外战友下载时尽量不要用 https / torrent 模式下载，因为只有 metalink / magnet 能向墙内战友提供流量。  
+　　向战友分享文件为downloadLinkList.txt，此文件包括墙内墙外战友下载两种链接格式 .metalink 与 magnet 链接。  
 
 # 如何参与分享
-　　在 sourceforge 申请账号，新建项目；将郭先生音视频下载到本地单独文件夹，下载本站mkmetalink脚本，按此脚本注释执行后会在文件夹内生成每个文件的 .torrent .magnet .metalink 的同名文件，同时生成一个下载列表文件"downLoadList.txt"。下一步就是，把整个文件夹内文件上传到 SF，最后将"downLoadList.txt"文件向战友分享。
-　　如果自有网上空间的战友，需要修改"mkmetalink"脚本文件。
+　　在 sourceforge 申请账号，新建项目；将郭先生音视频下载到本地单独文件夹，下载本站mkmetalink脚本，按此脚本注释执行后会在文件夹内生成每个文件的 .torrent .magnet .metalink 的同名文件，同时生成一个下载列表文件"downLoadList.txt"。下一步就是，把整个文件夹内文件上传到 SF，最后将"downLoadList.txt"文件向战友分享。  
+　　如果自有网上空间的战友，需要修改"mkmetalink"脚本文件。  
 
 # MAC系统操作步骤：
-以面具先生20200731视频为例：
-1. 访问面具先生视频，复制网址
+以面具先生20200731视频为例：  
+1. 访问面具先生视频，复制网址  
 https://www.youtube.com/watch?v=FBY0147BGws  
 2. 访问 youtube 视频链接解析网站，将面具网址粘贴到文本框内  
 https://www.findyoutube.net/  
-![图1](0001.png)
-3. 点击文本框后的 download 按钮进入下一页面
-4. 向下滚动，会看到“视频下载链接(Videos Download)”，根据油管提供的视频清晰度，本网站会提供不同的下载链接
-![图1](0002.png)
-5. 右键点击任意 Download 按钮，复制链接地址。
+![图1](0001.png)  
+3. 点击文本框后的 download 按钮进入下一页面  
+4. 向下滚动，会看到“视频下载链接(Videos Download)”，根据油管提供的视频清晰度，本网站会提供不同的下载链接  
+![图1](0002.png)  
+5. 右键点击任意 Download 按钮，复制链接地址。  
 6. 打开 MAC 终端，输入以下命令开始下载  
-aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的网址"
+aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的网址"  
 
-安装 homebrew：
-　　/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-安装aria2：
-　　brew install aria2
-安装mktorrent：
-　　brew insatll mktorrent
-执行metalink脚本：
-　　脚本
-　　\# 单文件用法：
-　　\# chmod 777 mkmetalink.sh;
-　　\# ./mkmetalink.sh dir/to/file
-　　\# 文件夹用法：
-　　\# absolutePath="absolute/path/of/folder";
-　　\# for line in $(ls $absolutePath); do
-　　\# echo $absolutePath"/"$line;
-　　\# ./mkmetalink.sh $absolutePath"/"$line;
-　　\# done;
+安装 homebrew：  
+　　/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
+安装aria2：  
+　　brew install aria2  
+安装mktorrent：  
+　　brew insatll mktorrent  
+执行metalink脚本：  
+　　脚本  
+　　\# 单文件用法：  
+　　\# chmod 777 mkmetalink.sh;  
+　　\# ./mkmetalink.sh dir/to/file  
+　　\# 文件夹用法：  
+　　\# absolutePath="absolute/path/of/folder";  
+　　\# for line in $(ls $absolutePath); do  
+　　\# echo $absolutePath"/"$line;  
+　　\# ./mkmetalink.sh $absolutePath"/"$line;  
+　　\# done;  
 
-# LINUX系统操作步骤：
-　　会linux的战友，一定能看懂MAC脚本，不写了，基本一样，无非是换几个命令。
+# LINUX系统操作步骤：  
+　　会linux的战友，一定能看懂MAC脚本，不写了，基本一样，无非是换几个命令。  
 
-WINDOWS系统操作步骤：
-下载安装WIN版mktorrent
-根据你操作系统是32位或64位，直接下载 .7z 软件压缩包，解压到某个目录。
+WINDOWS系统操作步骤：  
+下载安装WIN版mktorrent  
+根据你操作系统是32位或64位，直接下载 .7z 软件压缩包，解压到某个目录。  
 
-下载安装WIN版aria2 根据你操作系统是32位或64位，直接下载 .zip 软件压缩包，解压到某个目录。
+下载安装WIN版aria2 根据你操作系统是32位或64位，直接下载 .zip 软件压缩包，解压到某个目录。  
 
-将以上两个软件路径添加PATH 参考此网站根据你的操作系统版本设置PATH
+将以上两个软件路径添加PATH 参考此网站根据你的操作系统版本设置PATH  
 
-下载你要分享的爆料革命音视频文件到文件夹A，cd 命令进入文件夹A
+下载你要分享的爆料革命音视频文件到文件夹A，cd 命令进入文件夹A  
 
-执行 mktorrent -o aa.mp3.torrent aa.mp3 会在文件夹A生成种子
+执行 mktorrent -o aa.mp3.torrent aa.mp3 会在文件夹A生成种子  
 
-执行 aria2c -S aa.mp3.torrent 会显示 magnet
+执行 aria2c -S aa.mp3.torrent 会显示 magnet  
 
-执行 certutil -hashfile 20200719_miles.mp3 MD5 会显示 MD5
+执行 certutil -hashfile 20200719_miles.mp3 MD5 会显示 MD5  
 
-执行 certutil -hashfile 20200719_miles.mp3 SHA256 会显示 SHA256
+执行 certutil -hashfile 20200719_miles.mp3 SHA256 会显示 SHA256  
 
-下载 metalink-format.metalink 文件，将 6 - 8 生成的信息、url链接等添加到此文件内
+下载 metalink-format.metalink 文件，将 6 - 8 生成的信息、url链接等添加到此文件内  
 
-将文件夹A所有内容上传到你的网上空间
+将文件夹A所有内容上传到你的网上空间  
 
-手动编写下载列表分享给战友
+手动编写下载列表分享给战友  
 
-在技术群里看到 Madison 和 K.C. 的聊天了，非常感谢，KC 的文案我就直接抄了，Madison 能不能找个战友帮写个 .bat 批量生成脚本，我学了半天，这东西跟 shell 区别太大，写出来 bug 太多。写完直接发到G-Talent群里就行了。
+在技术群里看到 Madison 和 K.C. 的聊天了，非常感谢，KC 的文案我就直接抄了，Madison 能不能找个战友帮写个 .bat 批量生成脚本，我学了半天，这东西跟 shell 区别太大，写出来 bug 太多。写完直接发到G-Talent群里就行了。  
 
-metalink 文件格式：
-　　参考文件metalink-format.metalink
+metalink 文件格式：  
+　　参考文件metalink-format.metalink  
