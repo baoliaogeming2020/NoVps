@@ -13,41 +13,46 @@
 metalink 协议支持 HTTP / FTP / Bittorrent 同时下载同一个文件，墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。metalink 是 xml 文件，内含相同文件的 HTTP / FTP / Bittorrent 下载链接，BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友直接可以下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些BT软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它BT软件下载此种子文件， 注意 ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
 GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。
 
-传播方式：
+# 传播方式：
 　　网上有大量免费空间，只要能够上传文件并生成 http / ftp 下载链接，有无域名都可以传播。本地用脚本批量生成torrent / metalink / magnet 三种文件，一并上传，然后向墙外分享 metalink 链接，向墙内分享 magnet链接。
 
-Github 传播方式示例：
+## Github 传播方式示例：
 　　Github注册后建 project 可上传小于25M的文件，所有上传文件在无域名的情况下可生成下载链接。郭先生、路德、面具的音频中大于25M的要分割然后上传。
 
-分享方式示例：
+## 分享方式示例：
 　　墙外战友下载： aria2c https://home.com/dit/to/file.mp3.metalink
 　　墙内战友下载： aria2c magnet:?xt=urn:btih:A8C93686D09CAB35B04E648DAB805D2B9165E23E
 
-BT服务器：
+## BT服务器：
 　　tracker 服务器网站：https://newtrackon.com/list
 　　dht.dat 下载的网站：https://github.com/P3TERX/aria2.conf
 
-支持 metalink 软件汇总：
+# 支持 metalink 软件汇总：
 　　aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。
 　　AriaNg：
 　　aria2webui：
 　　yaaw：
 　　... ...
 
-支持 BT / magnet 软件汇总：
+# 支持 BT / magnet 软件汇总：
 　　Motrix：https://motrix.app/
 　　... ...
 
-本项目文件发布：
+# 本项目文件发布：
 　　本网站发布郭先生音频文件同时发布同文件名的 .torrent / .metalink / .magnet 三种下载链接，墙外战友下载时尽量不要用 https / torrent 模式下载，因为只有 metalink / magnet 能向墙内战友提供流量。
 　　向战友分享文件为downloadLinkList.txt，此文件包括墙内墙外战友下载两种链接格式 .metalink 与 magnet 链接。
 
-如何参与分享
+# 如何参与分享
 　　在 sourceforge 申请账号，新建项目；将郭先生音视频下载到本地单独文件夹，下载本站mkmetalink脚本，按此脚本注释执行后会在文件夹内生成每个文件的 .torrent .magnet .metalink 的同名文件，同时生成一个下载列表文件"downLoadList.txt"。下一步就是，把整个文件夹内文件上传到 SF，最后将"downLoadList.txt"文件向战友分享。
 　　如果自有网上空间的战友，需要修改"mkmetalink"脚本文件。
 
-MAC系统操作步骤：
+# MAC系统操作步骤：
 以面具先生20200731视频为例：
+1. 访问面具先生视频，复制网址
+https://www.youtube.com/watch?v=FBY0147BGws  
+2. 访问 youtube 视频链接解析网站，将面具网址粘贴到文本框内  
+https://www.findyoutube.net/  
+![图1](0001.png)
 
 aria2c --all-proxy "http://127.0.0.1:1087" "https://r1---sn-a5msen7z.googlevideo.com/videoplayback?expire=1596235844&ei=5EskX6yPL5DUgwPqu5TYAw&ip=163.153.220.170&id=o-ABXgD_7WY1IVoNapynpefTY8Fa_qlMZ4bbRwZvjSTiVJ&itag=22&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=4615.058&lmt=1596173523849741&fvip=1&fexp=23883098&c=WEB&txp=7316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAJ4x6NGDO-LleNjX7h4jYDRXcg4kSe51bnWwab-M_pBtAiEAwoBhtsoTKco0nqEgSq-kK8APokwib_eDpYYVMf6Xxn8%3D&rm=sn-oxgpj-5ace7e,sn-ab5yr7e&req_id=cbd739e65c19a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=eX&mip=23.225.159.50&mm=29&mn=sn-a5msen7z&ms=rdu&mt=1596214108&mv=u&mvi=1&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgD5wZEoAdMyr7KkKkd-WNISiZKmkGCy8I77dyQmtG8OgCIAjGUrv6EcGTkLA4zG6vslPoxs6MPwaTyJOKsbObDhR2"
 
