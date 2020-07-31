@@ -53,8 +53,12 @@ https://www.youtube.com/watch?v=FBY0147BGws
 2. 访问 youtube 视频链接解析网站，将面具网址粘贴到文本框内  
 https://www.findyoutube.net/  
 ![图1](0001.png)
-
-aria2c --all-proxy "http://127.0.0.1:1087" "https://r1---sn-a5msen7z.googlevideo.com/videoplayback?expire=1596235844&ei=5EskX6yPL5DUgwPqu5TYAw&ip=163.153.220.170&id=o-ABXgD_7WY1IVoNapynpefTY8Fa_qlMZ4bbRwZvjSTiVJ&itag=22&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=4615.058&lmt=1596173523849741&fvip=1&fexp=23883098&c=WEB&txp=7316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAJ4x6NGDO-LleNjX7h4jYDRXcg4kSe51bnWwab-M_pBtAiEAwoBhtsoTKco0nqEgSq-kK8APokwib_eDpYYVMf6Xxn8%3D&rm=sn-oxgpj-5ace7e,sn-ab5yr7e&req_id=cbd739e65c19a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=eX&mip=23.225.159.50&mm=29&mn=sn-a5msen7z&ms=rdu&mt=1596214108&mv=u&mvi=1&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgD5wZEoAdMyr7KkKkd-WNISiZKmkGCy8I77dyQmtG8OgCIAjGUrv6EcGTkLA4zG6vslPoxs6MPwaTyJOKsbObDhR2"
+3. 点击文本框后的 download 按钮进入下一页面
+4. 向下滚动，会看到“视频下载链接(Videos Download)”，根据油管提供的视频清晰度，本网站会提供不同的下载链接
+![图1](0002.png)
+5. 右键点击任意 Download 按钮，复制链接地址。
+6. 打开 MAC 终端，输入以下命令开始下载  
+aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的网址"
 
 安装 homebrew：
 　　/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -64,16 +68,17 @@ aria2c --all-proxy "http://127.0.0.1:1087" "https://r1---sn-a5msen7z.googlevideo
 　　brew insatll mktorrent
 执行metalink脚本：
 　　脚本
-　　# 单文件用法：
-　　# chmod 777 mkmetalink.sh;
-　　# ./mkmetalink.sh dir/to/file
-　　# 文件夹用法：
-　　# absolutePath="absolute/path/of/folder";
-　　# for line in $(ls $absolutePath); do
-　　# echo $absolutePath"/"$line;
-　　# ./mkmetalink.sh $absolutePath"/"$line;
-　　# done;
-LINUX系统操作步骤：
+　　\# 单文件用法：
+　　\# chmod 777 mkmetalink.sh;
+　　\# ./mkmetalink.sh dir/to/file
+　　\# 文件夹用法：
+　　\# absolutePath="absolute/path/of/folder";
+　　\# for line in $(ls $absolutePath); do
+　　\# echo $absolutePath"/"$line;
+　　\# ./mkmetalink.sh $absolutePath"/"$line;
+　　\# done;
+
+# LINUX系统操作步骤：
 　　会linux的战友，一定能看懂MAC脚本，不写了，基本一样，无非是换几个命令。
 
 WINDOWS系统操作步骤：
