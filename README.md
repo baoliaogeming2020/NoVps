@@ -52,6 +52,8 @@ https://www.findyoutube.net/
 5. 右键点击任意 Download 按钮，复制链接地址。  
 6. 打开 MAC 终端，输入以下命令开始下载  
 aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的链接地址"  
+因我用翻墙软件v2rayU所以需要代理，不翻墙的可去掉--all-proxy "http://127.0.0.1:1087"  
+其它翻墙软件根据自己的代理修改引号里的内容。  
 7. 生成 .torrent / .metalink / .magnet 三种下载链接  
 执行 mkmetalink4m.sh(MAC) 或 mkmetalink4w.bat(WIN) 或 mkmetalink4l.sh(linux)脚本，脚本用法参考脚本内注释。  
 8. 将三种文件上传到某个空间或分享到群。
