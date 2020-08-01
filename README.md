@@ -54,9 +54,19 @@ https://www.findyoutube.net/
 aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的链接地址"  
 因我用翻墙软件v2rayU所以需要代理，不翻墙的可去掉--all-proxy "http://127.0.0.1:1087"  
 其它翻墙软件根据自己的代理修改引号里的内容。  
-7. 生成 .torrent / .metalink / .magnet 三种下载链接  
-执行 mkmetalink4m.sh(MAC) 或 mkmetalink4w.bat(WIN) 或 mkmetalink4l.sh(linux)脚本，脚本用法参考脚本内注释。  
-8. 将三种文件上传到某个空间或分享到群。
+下载后文件名为"videoplayback"，无后缀，改名为"20200731_mask.mp4"。
+7. 生成 .torrent 种子  
+mktorrent -o 20200731_mask.mp4.torrent 20200731_mask.mp4  
+在本文件内会出现 20200731_mask.mp4.torrent 种子文件  
+8. 生成 .magnet 文件  
+aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","");print}')  
+新建 20200731_mask.mp4.magnet 文本文档，将此链接粘贴到此文件内，保存。  
+9. 生成 .metalink 文件
+根据 metalink-format.metalink 格式编写 .metalink 文件    
+10. 将 .torrent / .metalink / .magnet 三种文件上传到某个空间或分享到群。
+
+**注：** 一步下载并生成 .torrent / .metalink / .magnet 三种下载链接的脚本正在写  
+执行 mkmetalink4m.sh(MAC) 或 mkmetalink4w.bat(WIN) 或 mkmetalink4l.sh(linux)脚本，脚本用法参考脚本内注释。
 
 # 项目参考  
 [路德]() / [面具]()  
