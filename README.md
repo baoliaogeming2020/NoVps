@@ -90,7 +90,7 @@ aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","")
 - 参与分享链接：根据本项目步骤或脚本生成 .torrent / .magnet 下载链接，向墙内分享 .torrent / .magnet  
 - 参与分享流量：根据本项目步骤或脚本下载，并保留下载内容一段时间，保持开机状态，这样可以向墙内战友分享P2P流量
 
-# 软件支撑  
+# 软件支撑   
 参与分享流量的战友需要支持 .torrent / .magnet 协议的软件，并对软件进行相应的设置。  
 ## 支持 metalink 软件汇总：  
 - aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。  
