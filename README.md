@@ -1,20 +1,21 @@
 终于找到了不用申请 VPS 传播爆料革命的方法。大部分 VPS 架设 P2P 都会被封号，想破脑袋，终于想到了最适合的办法。  
 
 本项目适合传播任何分辨率的音视频，只要油管支持的格式就可以向墙内传播。  
+  
 **任何战友都可以自愿参与此项目，  
 人数越多向墙内传播的速度越快**。  
 
 # 项目简介  
-本项目是通过解析油管视频链接后生成 metalink 向墙内传播郭先生爆料革命音视频，当墙外战友通过 metalink 下载时，可向墙内战友分享下载流量。传播方式是通过向墙外战友分享 metalink 链接，向墙内战友分享 torrent / magnet 两种 P2P 链接，在墙外战友下载时，可通过 P2P 技术向墙内战友分享下载流量。  
+战友通过此方法回看爆料革命油管音视频，同时给墙内用 Bittorrent 下载的战友补档(给种子加速)，用此脚本回看同一音视频的战友越多，墙内战友下载越快。  
 
 # 版权声明：
 本项目为穿墙模式试探，所有方法与技术实现不向爆料革命战友保留版权，任何爆料革命战友都可以用相同的方式传播爆料革命。  
 如爆料革命主播想用此方式向墙内传播音视频，本人可以提供全程技术支持，请在评论区留言，我会主动联系爆料革命主播本人。  
 
 # 穿墙原理：
-通过解析 youtube 音视频链接，发现非 Blob 链接，用 aria2 技术下载后，用 mktorrent 生成 .torrent 种子文件，用 "aria2c -S" 命令解析 magnet 链接，再用生成 metalink 下载文件。  
+通过解析 youtube 音视频链接，发现非 Blob 链接，用 aria2 技术下载后，用 mktorrent 生成 .torrent 种子文件，用 "aria2c -S" 命令解析 magnet 链接。  
 
-metalink 协议支持 HTTP / FTP / Bittorrent 同时下载同一个文件，墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。metalink 是 xml 文件，内含相同文件的 HTTP / FTP / Bittorrent 下载链接，BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 加密方式完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友可以直接通过 P2P 下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些 BT 软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它 BT 软件下载此种子文件， *注意* ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
+墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 加密方式完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友可以直接通过 P2P 下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些 BT 软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它 BT 软件下载此种子文件， *注意* ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
 
 GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。  
 
@@ -61,22 +62,34 @@ mktorrent -o 20200731_mask.mp4.torrent 20200731_mask.mp4
 8. 生成 .magnet 文件  
 aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","");print}')  
 新建 20200731_mask.mp4.magnet 文本文档，将此链接粘贴到此文件内，保存。  
-9. 生成 .metalink 文件
-根据 metalink-format.metalink 格式编写 20200731_mask.mp4.metalink 文件    
-10. 将 .torrent / .metalink / .magnet 三种文件上传到某个空间或分享到群。
+9. 将 .torrent / .magnet 两种文件上传到某个空间或分享到群。
 
-**注：** 一步下载并生成 .torrent / .metalink / .magnet 三种下载链接的脚本正在写  
-执行 mkmetalink4m.sh(MAC) 或 mkmetalink4w.bat(WIN) 或 mkmetalink4l.sh(linux)脚本，脚本用法参考脚本内注释。
+# 脚本用法  
+[回看视频脚本](reu4mac.sh)  
+此脚本基本是上边 9 个步骤的一键脚本，打开脚本查看注释，或执行命令 ./reu4mac.sh -h  
+本脚本帮助战友回看爆料革命油管音视频，同时给墙内战友用 Bittorrent 下载时补档(给种子加速)，用此脚本回看同一音视频的战友越多，墙内战友下载越快。  
+本脚本首先会下载音视频，下载后会生成同名的 .torrent / .magnet 文件，如果你想传播此音视频，可以将这两个文件传向墙内。  
+补档：Bittorrent 种子下载时通常下载速度为 0，这是因为种子是死档。而将种子内文件放入 BT 软件内就是补档，给 BT 种子加速。  
+本脚本使用前需要安装 homebrew / mktorrent / aria2，安装命令如下：  
+安装 homebrew：/usr/bin/ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
+安装 aria2：brew install aria2  
+安装 mktorrent：brew insatll mktorrent  
+
+语法 :  
+    ./mkfromUtube.sh -f code -o filename -x proxy -i videoLinkfromYoutube  
+    ./mkfromUtube.sh -h  
+**注：**  
+其它操作系统脚本 reu4win.bat(WIN) / reu4linux.sh(linux) 请耐心等待。  
 
 # 项目参考  
-[路德]() / [面具]()  
+[路德油管视频分享]() / [面具油管视频分享]()  
 
 # 参与分享  
-- 参与分享链接：根据本项目步骤生成 .torrent / .metalink / .magnet 三种下载链接，并向墙外分享 .metalink，向墙内分享 .torrent / .magnet  
-- 参与分享流量：根据拿到的分享链接墙外战友在个人电脑下载并保留下载内容一段时间，保持开机状态，这样可以向墙内战友分享P2P流量
+- 参与分享链接：根据本项目步骤或脚本生成 .torrent / .magnet 下载链接，向墙内分享 .torrent / .magnet  
+- 参与分享流量：根据本项目步骤或脚本下载，并保留下载内容一段时间，保持开机状态，这样可以向墙内战友分享P2P流量
 
 # 软件支撑  
-参与分享流量的战友需要支持 .torrent / .metalink / .magnet 协议的软件，并对软件进行相应的设置。
+参与分享流量的战友需要支持 .torrent / .magnet 协议的软件，并对软件进行相应的设置。
 ## 支持 metalink 软件汇总：
 - aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。  
 - AriaNg：  
