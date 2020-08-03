@@ -48,7 +48,7 @@ brew insatll mktorrent
 
 ## 实施步骤  
 以面具先生20200731视频为例：  
-### 找到 youtube 视频链接  
+### 手动方案  
 1. 访问面具先生视频，复制网址  
 https://www.youtube.com/watch?v=FBY0147BGws  
 2. 访问 youtube 视频链接解析网站，将面具网址粘贴到文本框内  
