@@ -15,11 +15,12 @@
 # 穿墙原理：
 通过解析 youtube 音视频链接，发现非 Blob 链接，用 aria2 技术下载后，用 mktorrent 生成 .torrent 种子文件，用 "aria2c -S" 命令解析 magnet 链接。  
 
-墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。BT 以 btih 加密 hash 方式写入，此 btih-hash 与 magnet-btih 加密方式完全相同，这样，墙外战友下载后可以直接将 btih-hash 构造成 magnet 文本后向墙内战友传播，墙内战友可以直接通过 P2P 下载。而 magnet 首先会下载一个 Bittorrent 种子，然后可以通过所有 Bittorrent 软件进行下载。某些 BT 软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它 BT 软件下载此种子文件， *注意* ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
+墙外战友在下载时可以通过 BT 向墙内分享流量，墙外战友下载人数越多，墙内速度越快。墙内战友可直接下载 .torrent 种子。而 magnet 首先会自动下载种子，某些 BT 软件在下载 magnet 链接时找种慢，可以用迅雷(虽然有点危险)下载 magnet，这样找种快，然后再用其它 BT 软件下载此种子文件， *注意* ，迅雷在指定下载文件夹内先下载种子，但种子是隐藏文件，要想看到种子需要打开文件夹的显示隐藏功能。  
 
-GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。  
+墙内外战友都需要设置连接到 tracker 或 DHT，GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由。  
 
-# 软件安装
+# 软件安装  
+所有参与分享流量的战友需要安装  
 ## MAC操作系统
 - 安装 homebrew：  
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
@@ -92,6 +93,7 @@ aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","")
 - 参与分享流量：根据本项目步骤或脚本下载，并保留下载内容一段时间，保持开机状态，这样可以向墙内战友分享P2P流量
 
 # 软件支撑   
+墙内战友可用的，支持 .torrent / .magnet 协议的软件，需要对软件进行相应的设置。  
 参与分享流量的战友需要支持 .torrent / .magnet 协议的软件，并对软件进行相应的设置。  
 ## 支持 metalink 软件汇总：  
 - aria2：是一款自由、跨平台命令行下载管理器，支持的下载协议有： HTTP / HTTPS / FTP / Bittorrent / Metalink。无 shell 基础战友不建议使用。  
