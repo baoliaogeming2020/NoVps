@@ -78,7 +78,7 @@ aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","")
 ```
 9. 将 .torrent / .magnet 两种文件上传到某个空间或分享到群。
 
-## 脚本用法  
+### 脚本用法  
 [下载视频生成种子MAC脚本](reu4mac.sh)  
 此脚本基本是上边 9 个步骤的一键脚本，打开脚本查看注释，或执行命令 ./reu4mac.sh -h 查看帮助  
 ![0004.png](0004.png)
