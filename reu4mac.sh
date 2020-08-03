@@ -115,9 +115,13 @@ if [ "$onlyhelp" = false ]; then
     myContent=$(curl --proxy "$myproxy" -d "url=${myURL}&proxy:=Random&submit=Download&csrf_token=$myToken"  -X POST $parsNet2)
     # 在结果页面中找到指定格式代码的下载链接
     myLink=$(echo $myContent | awk '/<a href=/' | awk '/itag=18/{gsub(/<a href=/,"");gsub(/ download=.+/,"");gsub(/amp;/,"");print}' | sort | uniq)
-
-    # 下载音视频，生成 .torrent 种子，生成 .magnet 文件。
-    aria2c --all-proxy "$myproxy" -o "$myfilename" $myLink \
-    && mktorrent $myfilename \
-    && aria2c -S $myfilename".torrent" > $myfilename".magnet"
+    echo $myLink
+    if [ "$myLink" = "" ]; then
+      echo "油管内部链接还未产生!如果要回看还要再等一会。油管大概在直播结束后1小时左右生成下载链接。"
+    else
+      # 下载音视频，生成 .torrent 种子，生成 .magnet 文件。
+      aria2c --all-proxy "$myproxy" -o "$myfilename" $myLink \
+      && mktorrent $myfilename \
+      && aria2c -S $myfilename".torrent" | awk '/Magnet URI: /{gsub(/Magnet URI: /,"");print}' > $myfilename".magnet"
+    fi
 fi
