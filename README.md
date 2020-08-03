@@ -25,7 +25,7 @@ GFW 是无法完全封锁 Bittorrent 软件的 tracker 服务器和 DHT 路由�
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
 - 安装 aria2：  
 brew install aria2  
-设置 aria2 解决无法下载磁力链接、BT种子和速度慢的问题  
+[设置](setaria2.md) aria2 解决无法下载磁力链接、BT种子和速度慢的问题  
 - 安装 mktorrent：  
 brew insatll mktorrent  
 
