@@ -40,7 +40,7 @@ brew insatll mktorrent
 ### WIN操作系统  
 - 安装 mktorrent：  
 进入[网站](https://github.com/q3aql/mktorrent-win)，根据你操作系统是32位或64位，直接下载 .7z 软件压缩包，解压到某个目录。  
-- 安装 aria2：
+- 安装 aria2：  
 进入[网站](https://github.com/aria2/aria2/releases/tag/release-1.35.0)，根据你操作系统是32位或64位，直接下载 .zip 软件压缩包，解压到某个目录。  
 - 设置运行环境：  
 将以上两个软件路径添加 PATH 参考此网站根据你的操作系统版本[设置PATH](https://www.java.com/zh_CN/download/help/path.xml)  
