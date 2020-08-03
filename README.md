@@ -57,7 +57,7 @@ https://www.youtube.com/watch?v=FBY0147BGws
 https://www.findyoutube.net/  
 ![图1](0001.png)  
 3. 点击文本框后的 download 按钮进入下一页面  
-4. 向下滚动，会看到“视频下载链接(Videos Download)”，根据油管提供的视频清晰度，本网站会提供不同的下载链接  
+4. 向下滚动，会看到“视频下载链接(Videos Download)”，根据油管提供的视频清晰度，本网站会提供不同的下载链接，直接结束后大概1小后，油管才会生成下载链接。  
 ![图1](0002.png)  
 5. 右键点击任意 Download 按钮，复制链接地址。  
 6. 打开 MAC 终端，输入以下命令开始下载  
