@@ -24,9 +24,13 @@
 所有参与分享流量的战友需要安装  
 ### MAC操作系统
 - 安装 homebrew：  
+```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
+```
 - 安装 aria2：  
+```
 brew install aria2  
+```
 [设置](setaria2.md) aria2 解决无法下载磁力链接、BT种子和速度慢的问题  
 - 安装 mktorrent：  
 brew insatll mktorrent  
@@ -55,15 +59,21 @@ https://www.findyoutube.net/
 ![图1](0002.png)  
 5. 右键点击任意 Download 按钮，复制链接地址。  
 6. 打开 MAC 终端，输入以下命令开始下载  
+```
 aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的链接地址"  
-因我用翻墙软件 v2rayU 所以需要代理，不翻墙的可去掉 --all-proxy "http://127.0.0.1:1087"  
+```
+因我用翻墙软件 v2rayU 所以需要代理，不翻墙的可去掉` --all-proxy "http://127.0.0.1:1087"`  
 其它翻墙软件根据自己的代理修改引号里的内容。  
 下载后文件名为 "videoplayback"，无后缀，改名为"20200731_mask.mp4"。
 7. 生成 .torrent 种子  
+```
 mktorrent -o 20200731_mask.mp4.torrent 20200731_mask.mp4  
+```
 在本文件内会出现 20200731_mask.mp4.torrent 种子文件  
 8. 生成 .magnet 文件  
+```
 aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","");print}')  
+```
 新建 20200731_mask.mp4.magnet 文本文档，将此链接粘贴到此文件内，保存。  
 9. 将 .torrent / .magnet 两种文件上传到某个空间或分享到群。
 
@@ -76,13 +86,13 @@ aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","")
 本脚本首先会下载音视频，下载后会生成同名的 .torrent / .magnet 文件，如果你想传播此音视频，可以将这两个文件传向墙内。  
 补档：Bittorrent 种子下载时通常下载速度为 0，这是因为种子是死档。而将种子内文件放入 BT 软件内就是补档，给 BT 种子加速。  
 本脚本使用前需要安装 homebrew / mktorrent / aria2，安装命令如下：  
-安装 homebrew：/usr/bin/ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
-安装 aria2：brew install aria2  
-安装 mktorrent：brew insatll mktorrent  
+安装 homebrew：`/usr/bin/ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
+安装 aria2：`brew install aria2`  
+安装 mktorrent：`brew insatll mktorrent`  
 
 语法 :  
-    ./mkfromUtube.sh -f code -o filename -x proxy -i videoLinkfromYoutube  
-    ./mkfromUtube.sh -h  
+    `./mkfromUtube.sh -f code -o filename -x proxy -i videoLinkfromYoutube`  
+    `./mkfromUtube.sh -h`  
 **注：**  
 其它操作系统脚本 reu4win.bat(WIN) / reu4linux.sh(linux) 请耐心等待。  
 
