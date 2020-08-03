@@ -24,13 +24,17 @@ BitTorrent tracker 是帮助 BT 协议在节点与节点之间做连接的服务
 
 trackerslist 是一个提供 tracker 列表的项目，几乎每天都会更新。列表还分为 udp、http、ws…… 小孩子才做选择，所以直接选择 trackers_all 这个包含所有服务器的列表。然后更改格式，tracker 之间用 , 隔开，再添加到 Aria2 配置文件中，就像下面这样：  
 
-`bt-tracker=udp://tracker.coppersurfer.tk:6969/announce,udp://tracker.leechers-paradise.org:6969/announce,udp://tracker.opentrackr.org:1337/announce,udp
+```
+bt-tracker=udp://tracker.coppersurfer.tk:6969/announce,udp://tracker.leechers-paradise.org:6969/announce,udp://tracker.opentrackr.org:1337/announce,udp
 ://9.rarbg.to:2710/announce,udp://9.rarbg.me:2710/announce,udp://tracker.internetwarriors.net:1337/announce,udp://tracker.openbittorrent.com:80/announc
-e,udp://exodus.desync.com:6969/announce,udp://open.demonii.si:1337/announce,udp://tracker.tiny-vps.com:6969/announce`  
+e,udp://exodus.desync.com:6969/announce,udp://open.demonii.si:1337/announce,udp://tracker.tiny-vps.com:6969/announce
+```  
 当然这种重复的事情，用脚本来做才是正确的方式：  
 
 - 在 Aria2 配置文件(aria2.conf)所在目录执行以下命令即可获取最新 tracker 列表并自动添加到配置文件中。  
-`bash <(curl -fsSL git.io/tracker.sh)`  
+```
+bash <(curl -fsSL git.io/tracker.sh)
+```  
 对于使用 Aria2 一键安装脚本的小伙伴，直接打开自动更新 BT-Tracker 功能即可。  
 
 ## 获取 DHT 数据  
@@ -38,20 +42,22 @@ e,udp://exodus.desync.com:6969/announce,udp://open.demonii.si:1337/announce,udp:
 
 DHT 网络由无数节点组成，只要是开启 DHT 功能的 BT 客户端都是一个节点，所以你也可以是其中的一份子。当接触到一个节点，通过这个节点又能接触到更多的节点，接触的节点越多，你获取资源的能力就越强，下载的速度间接也就会有提升。即使在完全不连上 Tracker 服务器的情况下，也可以很好的下载。以下是 Aria2 配置文件中一些与 DHT 相关的功能选项：  
 
-`\# DHT（IPv4）文件  
+```
+# DHT（IPv4）文件  
 dht-file-path=/root/.aria2/dht.dat  
-\# DHT（IPv6）文件  
+# DHT（IPv6）文件  
 dht-file-path6=/root/.aria2/dht6.dat  
-\# 打开DHT功能, PT需要禁用, 默认:true  
+# 打开DHT功能, PT需要禁用, 默认:true  
 enable-dht=true  
-\# 打开IPv6 DHT功能, PT需要禁用  
+# 打开IPv6 DHT功能, PT需要禁用  
 enable-dht6=true  
-\# DHT网络监听端口, 默认:6881-6999  
+# DHT网络监听端口, 默认:6881-6999  
 dht-listen-port=51413  
-\# 本地节点查找, PT需要禁用, 默认:false  
+# 本地节点查找, PT需要禁用, 默认:false  
 bt-enable-lpd=true  
-\# 种子交换, PT需要禁用, 默认:true  
-enable-peer-exchange=true`  
+# 种子交换, PT需要禁用, 默认:true  
+enable-peer-exchange=true
+```  
 和其他 BT 下载工具一样，Aria2 有个 dht.dat 文件（开启 IPv6 还有个 dht6.dat），里面记录了 DHT 节点信息。但是！文件本身是不存在的，需要手动创建。如果你在 Aria2 第一次运行的时候直接下载磁力链接或者冷门种子，因为文件内没有任何数据，就无法获取到 DHT 网络中的节点，所以就会遇到无法下载的情况。  
 
 第一个解决方案是找有数据 DHT 文件。比如 Aria2 完美配置中就有（所以使用 Aria2 一键安装脚本 增强版和 Aria2 Pro 的小伙伴无需担心这个问题）。  
