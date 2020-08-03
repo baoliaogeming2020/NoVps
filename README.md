@@ -33,7 +33,9 @@ brew install aria2
 ```
 [设置](setaria2.md) aria2 解决无法下载磁力链接、BT种子和速度慢的问题  
 - 安装 mktorrent：  
-brew insatll mktorrent  
+```
+brew insatll mktorrent
+```  
 
 ### WIN操作系统  
 - 安装 mktorrent：  
