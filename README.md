@@ -86,7 +86,7 @@ aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","")
 其它操作系统脚本 reu4win.bat(WIN) / reu4linux.sh(linux) 请耐心等待。  
 
 # 项目参考  
-[路德油管视频分享]() / [面具油管视频分享]()  
+[路德油管视频分享](https://github.com/baoliaogeming2020/lude) / [面具油管视频分享](https://github.com/baoliaogeming2020/mask)  
 
 # 参与分享  
 - 参与分享链接：根据本项目步骤或脚本生成 .torrent / .magnet 下载链接，向墙内分享 .torrent / .magnet  
