@@ -74,9 +74,8 @@ mktorrent -o 20200731_mask.mp4.torrent 20200731_mask.mp4
 在本文件内会出现 20200731_mask.mp4.torrent 种子文件  
 8. 生成 .magnet 文件  
 ```
-aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","");print}')  
+aria2c -S 20200731_mask.mp4.torrent | awk '/Magnet URI:/{gsub("Magnet URI: ","");print}') | > 20200731_mask.mp4.magnet  
 ```
-新建 20200731_mask.mp4.magnet 文本文档，将此链接粘贴到此文件内，保存。  
 9. 将 .torrent / .magnet 两种文件上传到某个空间或分享到群。
 
 ## 脚本用法  
