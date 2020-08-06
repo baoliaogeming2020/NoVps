@@ -39,8 +39,10 @@
 > ```aria2c --all-proxy "http://127.0.0.1:1087" "此处粘贴刚才复制的链接地址"```  
 
 6. 用软件qbtorrent做种  
-[0003.png](0003.png)  
+![0003.png](0003.png)  
 7. 将 .torrent 种子文件上传到某个空间或分享到群，记得注释写明视频原标题。  
+### 3. 一键脚本回看  
+下载[脚本](reu4mac.sh)，按脚本注释执行后，自动在所在文件夹下载，可以边下载边回看。下载完成会自动生成种子。  
 ## 五、下载方法
 墙内战友可根据自己的习惯选择 Bittorrent 下载软件，并设置 tracker / DHT。  
 ### 1. 支持软件汇总：
@@ -50,7 +52,7 @@
 > - aria2webui：aria2 最早的的界面，有网站版，但不太好用。
 > - yaaw：aria2 最早的的界面，有 firefox / chrome 插件版，功能太简单。
 
-- [Motrix](https://motrix.app/)：只支持 Mac，相对好学。
+- [Motrix](https://motrix.app/)：只支持 Mac，相对好学。  
 ... ...
 ### 2. BT节点服务器：
 - tracker 服务器网站：https://newtrackon.com/list  
